@@ -5,17 +5,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Essential Development Commands
 
 ### Development Server
-- `gleam run -m lustre/dev start` - Start the development server with hot reload
+- `gleam run -m lustre/dev start` - Start the development server with hot reload at http://localhost:1234
 - The development server automatically watches for file changes and rebuilds the application
 
 ### Building for Production
 - `gleam run -m lustre/dev build app --minify` - Build minified production bundle
+- `gleam run -m lustre/dev build app` - Build for development (non-minified)
 - Output files are generated in `priv/static/` directory
 
 ### Basic Commands
 - `gleam deps download` - Download/install dependencies
-- `gleam run` - Run the application
 - `gleam build` - Compile the application
+- `gleam check` - Type check without building
+- `gleam format` - Format all Gleam source files
 
 ## Project Architecture
 
@@ -58,5 +60,10 @@ This project follows the Elm-inspired MVU architecture pattern:
 
 ### Styling
 - Uses Tailwind CSS classes throughout the codebase
-- CSS is loaded via `priv/static/app.css`
-- Component styling is done through `attribute.class()` calls
+- Tailwind utility classes can be used directly in components via `attribute.class()`
+- The development server handles Tailwind CSS compilation automatically
+
+### Important Notes
+- **Target Platform**: This project targets JavaScript (`target = "javascript"` in gleam.toml)
+- **Main Entry Point**: The `main()` function in `src/app.gleam` mounts the application to `#app` element
+- **Effect System**: Side effects (like URL changes) are handled through Lustre's `effect.Effect` type, not performed directly in update functions
