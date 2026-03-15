@@ -20,4 +20,4 @@ lustre = ">= 5.6.0 and < 6.0.0"
 modem = ">= 2.1.0 and < 3.0.0"
 
 [dev-dependencies]
-lustre_dev_tools = ">= 2.3.4 and < 3.0.0"
+lustre_dev_tools = ">= 2.3.5 and < 3.0.0"
