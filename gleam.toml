@@ -15,7 +15,7 @@ licences = ["MIT"]
 # https://gleam.run/writing-gleam/gleam-toml/.
 
 [dependencies]
-gleam_stdlib = ">= 0.44.0 and < 2.0.0"
+gleam_stdlib = ">= 0.70.0 and < 2.0.0"
 lustre = ">= 5.6.0 and < 6.0.0"
 modem = ">= 2.1.0 and < 3.0.0"
 
